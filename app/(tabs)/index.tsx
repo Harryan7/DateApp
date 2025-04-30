@@ -1,9 +1,12 @@
-import React, { useState, useRef } from 'react';
-import { StyleSheet, View, Animated, PanResponder, Text, Image, Dimensions } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { StyleSheet, View, Animated, PanResponder, Text, Image, Dimensions, TouchableOpacity } from 'react-native';
+import Haptics from 'expo-haptics';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { Colors } from '@/constants/Colors';
+import { useTranslation } from 'react-i18next';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -50,6 +53,7 @@ const DUMMY_USERS = [
 
 export default function HomeScreen() {
   const colorScheme = useColorScheme();
+  const { t } = useTranslation();
   const [users, setUsers] = useState(DUMMY_USERS);
   const position = useRef(new Animated.ValueXY()).current;
   const rotate = position.x.interpolate({
@@ -114,6 +118,17 @@ export default function HomeScreen() {
       setUsers(prevUsers => prevUsers.slice(1));
       position.setValue({ x: 0, y: 0 });
     });
+  };
+  
+  // Like ve Nope butonları için işlevler
+  const handleLike = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    swipe('right');
+  };
+
+  const handleNope = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    swipe('left');
   };
 
   const renderCards = () => {
@@ -192,11 +207,28 @@ export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
       <ThemedView style={styles.header}>
-        <ThemedText type="title">Discover</ThemedText>
+        <ThemedText type="title">{t('tabs.discover')}</ThemedText>
       </ThemedView>
-      <ThemedView style={styles.cardsContainer}>
+
+      <View style={styles.cardsContainer}>
         {renderCards()}
-      </ThemedView>
+        
+        <ThemedView style={styles.buttonsContainer}>
+          <TouchableOpacity 
+            style={[styles.button, styles.nopeButton]}
+            onPress={handleNope}
+          >
+            <IconSymbol name="xmark" size={32} color="white" />
+          </TouchableOpacity>
+          
+          <TouchableOpacity 
+            style={[styles.button, styles.likeButton]}
+            onPress={handleLike}
+          >
+            <IconSymbol name="heart.fill" size={24} color="white" />
+          </TouchableOpacity>
+        </ThemedView>
+      </View>
     </ThemedView>
   );
 }
@@ -289,5 +321,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 100,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
+  },
+  button: {
+    padding: 10,
+    borderRadius: 50,
+  },
+  nopeButton: {
+    backgroundColor: '#FF0060',
+  },
+  likeButton: {
+    backgroundColor: '#4CAF50',
   },
 });

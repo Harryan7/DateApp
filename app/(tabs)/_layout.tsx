@@ -1,20 +1,26 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
+import { useColorScheme } from '@/hooks/useColorScheme';
+import { Colors } from '@/constants/Colors';
+import { IconSymbol } from '@/components/ui/IconSymbol';
+import { useTranslation } from 'react-i18next';
 
 import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const { t } = useTranslation();
 
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarShowLabel: true,
+        tabBarLabelStyle: {
+          fontSize: 11,
+        },
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
@@ -29,36 +35,49 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Discover',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="flame.fill" color={color} />,
+          title: t('tabs.discover'),
+          tabBarIcon: ({ color }) => <IconSymbol name="flame.fill" color={color} size={24} />,
         }}
       />
       <Tabs.Screen
         name="likes"
         options={{
-          title: 'Likes',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="star.fill" color={color} />,
+          title: t('tabs.likes'),
+          tabBarIcon: ({ color }) => <IconSymbol name="heart.fill" color={color} size={24} />,
+        }}
+      />
+      <Tabs.Screen
+        name="random-matches"
+        options={{
+          title: t('tabs.randomMatches'),
+          tabBarIcon: ({ color }) => <IconSymbol name="sparkles" color={color} size={24} />,
         }}
       />
       <Tabs.Screen
         name="messages"
         options={{
-          title: 'Messages',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="message.fill" color={color} />,
+          title: t('tabs.messages'),
+          tabBarIcon: ({ color }) => <IconSymbol name="message.fill" color={color} size={24} />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'Profile',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.fill" color={color} />,
+          title: t('tabs.profile'),
+          tabBarIcon: ({ color }) => <IconSymbol name="person.fill" color={color} size={24} />,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          title: 'Settings',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="gearshape.fill" color={color} />,
+          title: t('tabs.settings'),
+          tabBarIcon: ({ color }) => <IconSymbol name="gear" color={color} size={24} />,
+        }}
+      />
+      <Tabs.Screen
+        name="explore"
+        options={{
+          href: null,
         }}
       />
     </Tabs>

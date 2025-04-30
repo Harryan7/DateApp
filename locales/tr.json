@@ -35,7 +35,8 @@
     "likes": "Beğeniler",
     "messages": "Mesajlar",
     "profile": "Profil",
-    "settings": "Ayarlar"
+    "settings": "Ayarlar",
+    "randomMatches": "Rastgele"
   },
   "discover": {
     "noMoreCards": "Daha fazla profil yok!",
@@ -101,5 +102,20 @@
     "version": "Sürüm",
     "logOut": "Çıkış Yap",
     "deleteAccount": "Hesabı Sil"
+  },
+  "randomMatch": {
+    "title": "Rastgele Eşleşme",
+    "description": "Öğlen 12 - akşam 6 saatleri arasında rastgele eşleşeceksiniz",
+    "pending": "Bekleyen Eşleşme",
+    "accept": "Eşleşmeyi Kabul Et",
+    "reject": "Eşleşmeyi Reddet",
+    "timeRemaining": "Kalan Süre: {{time}}",
+    "matchExpired": "Eşleşme süresi doldu",
+    "noMatch": "Şu anda bekleyen eşleşmeniz yok",
+    "matchCanceled": "Eşleşme iptal edildi",
+    "matchAccepted": "Eşleşme kabul edildi!",
+    "waitingForOther": "Diğer kişinin onayı bekleniyor",
+    "notification": "Yeni bir rastgele eşleşmeniz var!",
+    "bothAccepted": "İkiniz de eşleşmeyi kabul ettiniz. Şimdi mesajlaşabilirsiniz!"
   }
 } 

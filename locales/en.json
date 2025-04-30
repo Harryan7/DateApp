@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "Tinder Clone",
+    "appName": "Dating App",
     "loading": "Loading...",
     "cancel": "Cancel",
     "save": "Save",
@@ -16,7 +16,7 @@
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "signOut": "Sign Out",
-    "forgotPassword": "Forgot Password?",
+    "forgotPassword": "Forgot your password?",
     "email": "Email",
     "password": "Password",
     "confirmPassword": "Confirm Password",
@@ -26,7 +26,7 @@
     "continueWithGoogle": "Continue with Google",
     "continueWithFacebook": "Continue with Facebook",
     "continueWithApple": "Continue with Apple",
-    "termsAgree": "By continuing, you agree to our",
+    "termsAgree": "By continuing, you agree to our:",
     "termsOfService": "Terms of Service",
     "privacyPolicy": "Privacy Policy"
   },
@@ -35,7 +35,8 @@
     "likes": "Likes",
     "messages": "Messages",
     "profile": "Profile",
-    "settings": "Settings"
+    "settings": "Settings",
+    "randomMatches": "Random"
   },
   "discover": {
     "noMoreCards": "No more profiles!",
@@ -67,7 +68,7 @@
     "jobTitle": "Job Title",
     "company": "Company",
     "school": "School",
-    "livingIn": "Living in",
+    "livingIn": "Living In",
     "gender": "Gender",
     "height": "Height",
     "languages": "Languages",
@@ -101,5 +102,20 @@
     "version": "Version",
     "logOut": "Log Out",
     "deleteAccount": "Delete Account"
+  },
+  "randomMatch": {
+    "title": "Random Match",
+    "description": "You'll be randomly matched between 12 PM and 6 PM",
+    "pending": "Pending Match",
+    "accept": "Accept Match",
+    "reject": "Reject Match",
+    "timeRemaining": "Time Remaining: {{time}}",
+    "matchExpired": "Match expired",
+    "noMatch": "You don't have any pending matches right now",
+    "matchCanceled": "Match canceled",
+    "matchAccepted": "Match accepted!",
+    "waitingForOther": "Waiting for other person",
+    "notification": "You have a new random match!",
+    "bothAccepted": "Both of you accepted the match. Now you can start messaging!"
   }
 } 
